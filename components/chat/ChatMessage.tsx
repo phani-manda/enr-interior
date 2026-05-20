@@ -14,8 +14,8 @@ export default function ChatMessage({ message }: { message: Message }) {
     >
       <div
         className={cn(
-          "max-w-[82%] rounded-sm px-4 py-3 text-sm leading-relaxed",
-          isUser ? "bg-gold text-obsidian" : "bg-ivory/10 text-ivory"
+          "max-w-[82%] rounded-none px-4 py-3 text-sm leading-relaxed",
+          isUser ? "bg-enr-gold-muted/20 text-enr-ivory" : "bg-enr-graphite text-enr-ivory"
         )}
       >
         {message.content}

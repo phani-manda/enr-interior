@@ -5,43 +5,43 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { blurDataURL, cn } from "@/lib/utils";
 
-const styles = ["All", "Minimal", "Luxe", "Japandi", "Industrial", "Coastal"] as const;
+const styles = ["All", "Contemporary", "Royal Classic", "Modern Luxe", "Scandinavian", "Industrial Chic", "Vastu-Aligned"] as const;
 const scenes = [
   {
-    style: "Japandi",
-    title: "Japandi Calm",
+    style: "Contemporary",
+    title: "Contemporary Indian",
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
     secondary: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=85",
-    materials: "Oak, limewash, paper, linen",
-    color: "Warm white, smoked beige, ink",
-    mood: "Still, grounded, ritualistic"
+    materials: "Teak wood, brushed brass, handloom textiles",
+    color: "Warm neutrals, antique gold, deep wood",
+    mood: "Grounded / Cultured / Proudly Indian"
   },
   {
-    style: "Luxe",
-    title: "Luxe Parisian",
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
+    style: "Modern Luxe",
+    title: "Modern Luxe Kitchen",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85",
     secondary: "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=900&q=85",
-    materials: "Marble, brass, velvet, plaster",
-    color: "Ivory, cognac, antique gold",
-    mood: "Cinematic, layered, intimate"
+    materials: "Lacquered MDF, quartz counters, Hettich hardware",
+    color: "Charcoal, champagne gold, clean white",
+    mood: "Precision / Gleaming / Effortless"
   },
   {
-    style: "Industrial",
-    title: "Raw Industrial",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85",
+    style: "Royal Classic",
+    title: "Royal Classic Living",
+    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
     secondary: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85",
-    materials: "Concrete, blackened steel, leather",
-    color: "Graphite, oxide, warm grey",
-    mood: "Direct, tactile, composed"
+    materials: "Italian marble, velvet upholstery, gold leaf accents",
+    color: "Ivory, old gold, deep walnut",
+    mood: "Opulent / Timeless / Statement"
   },
   {
-    style: "Coastal",
-    title: "Coastal Quiet",
+    style: "Scandinavian",
+    title: "Scandinavian Calm Bedroom",
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
     secondary: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",
-    materials: "Rattan, pale oak, cotton, stone",
-    color: "Salt, sand, driftwood",
-    mood: "Airy, relaxed, sun-washed"
+    materials: "White oak, linen, concrete textures, soft greys",
+    color: "Warm white, pale grey, light oak",
+    mood: "Restful / Breathable / Uncluttered"
   }
 ];
 
@@ -51,13 +51,13 @@ export default function InspirationExperience() {
 
   return (
     <>
-      <section className="bg-ivory px-5 pb-12 lg:px-10">
+      <section className="bg-enr-obsidian px-5 pb-12 text-enr-ivory lg:px-10">
         <div className="mx-auto flex max-w-[1500px] gap-3 overflow-x-auto scrollbar-hide">
           {styles.map((style) => (
             <button
               key={style}
               onClick={() => setActive(style)}
-              className={cn("rounded-full border border-charcoal/15 px-5 py-2 text-sm transition", active === style && "border-gold bg-gold text-ivory")}
+              className={cn("border border-enr-gold-muted/40 px-5 py-2 text-sm transition hover:border-enr-gold", active === style && "border-enr-gold bg-enr-gold text-enr-obsidian")}
             >
               {style}
             </button>
@@ -125,15 +125,21 @@ function Info({ label, value }: { label: string; value: string }) {
 
 function MaterialExplorer() {
   const materials = [
-    ["Calacatta Marble", "Carrara, Italy", "Feature walls, counters", "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=85"],
-    ["Smoked Oak", "European forests", "Millwork, flooring", "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=85"],
-    ["Brushed Brass", "Custom finish", "Hardware, trims", "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=85"],
-    ["Boucle Wool", "Textile atelier", "Seating, panels", "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=85"],
-    ["Lime Plaster", "Hand applied", "Walls, ceilings", "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=700&q=85"],
-    ["Travertine", "Tivoli, Italy", "Floors, baths", "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=700&q=85"]
+    ["Lacquered MDF", "Gloss finish", "Kitchen shutters", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=700&q=85"],
+    ["Teak Wood", "Indian hardwood", "Doors, accents", "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=85"],
+    ["Italian Marble", "Premium stone", "Floors, counters", "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=700&q=85"],
+    ["Quartz Stone", "Engineered surface", "Kitchen counters", "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=700&q=85"],
+    ["Engineered Wood", "Stable core", "Wardrobes, storage", "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=700&q=85"],
+    ["Velvet Fabric", "Soft touch", "Sofas, headboards", "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=85"],
+    ["Brushed Brass", "Warm metal", "Handles, trims", "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=700&q=85"],
+    ["Hettich Hardware", "German fittings", "Kitchen systems", "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=700&q=85"],
+    ["Back-painted Glass", "Reflective surface", "Backsplashes", "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=700&q=85"],
+    ["Veneer Finish", "Natural grain", "Wall panels", "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=85"],
+    ["Porcelain Tiles", "Durable surface", "Bathrooms, floors", "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=85"],
+    ["PU Paint", "Seamless finish", "Premium shutters", "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=700&q=85"]
   ];
   return (
-    <section className="bg-ivory px-5 py-28 lg:px-10">
+    <section className="bg-[var(--enr-bg-primary)] px-5 py-28 text-[var(--enr-text-primary)] lg:px-10">
       <div className="mx-auto max-w-[1500px]">
         <h2 className="h1-type mb-12">Our Material Language</h2>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

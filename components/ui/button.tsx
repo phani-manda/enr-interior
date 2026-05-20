@@ -12,7 +12,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-sm border transition-all duration-300 focus-visible:outline-gold disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center gap-2 rounded-none border transition-all duration-300 focus-visible:outline-gold disabled:pointer-events-none disabled:opacity-50",
           size === "sm" && "h-9 px-4 text-xs uppercase tracking-[0.08em]",
           size === "md" && "h-11 px-6 text-sm uppercase tracking-[0.08em]",
           size === "lg" && "h-13 px-8 text-sm uppercase tracking-[0.08em]",

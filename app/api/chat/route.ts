@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import type { ChatMessage } from "@/store/chatStore";
 
 const systemPrompt =
-  "You are LUMI, the AI design consultant for LUMINE Studio. Help visitors explore design styles, understand services, browse the catalog, and book consultations. Be elegant, knowledgeable, and concise.";
+  "You are ENR Interiors' AI assistant. Guide users on Modular Kitchens, Wardrobes, and False Ceilings. Push users gently toward booking a free site visit. You know the address is 7-949, Adarsh Nagar, Hyderabad.";
 
 interface ChatPayload {
   messages: ChatMessage[];
@@ -13,9 +13,7 @@ export async function POST(request: NextRequest) {
   const endpoint = process.env.NEXT_PUBLIC_AI_API_URL;
 
   if (!endpoint) {
-    return streamText(
-      "LUMI is ready. Configure NEXT_PUBLIC_AI_API_URL with an OpenAI-compatible chat endpoint to enable live streaming responses."
-    );
+    return streamText("ENR Design Assistant is ready. Ask about modular kitchens, wardrobes, false ceilings, or booking a free site visit.");
   }
 
   try {
@@ -40,9 +38,7 @@ export async function POST(request: NextRequest) {
       headers: { "Content-Type": "text/plain; charset=utf-8" }
     });
   } catch {
-    return streamText(
-      "I can guide you through LUMINE Studio's styles, services, catalog concepts, and consultation process. The live AI endpoint needs a valid OpenAI-compatible URL."
-    );
+    return streamText("I can guide you through ENR's modular kitchens, wardrobes, false ceilings, materials, and free site visits. The live AI endpoint needs a valid OpenAI-compatible URL.");
   }
 }
 

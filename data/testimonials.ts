@@ -6,18 +6,18 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "LUMINE understood restraint in a way that felt deeply personal. Our home feels calm, precise, and quietly spectacular.",
-    name: "Anika R.",
-    projectType: "Private Residence"
+    quote: "ENR completely transformed our Jubilee Hills home. The kitchen alone gets more compliments than anything else in the house.",
+    name: "Priya R.",
+    projectType: "Homeowner, Jubilee Hills"
   },
   {
-    quote: "They turned a demanding commercial brief into an environment our clients remember before we say a word.",
-    name: "Dev Malhotra",
-    projectType: "Workplace Studio"
+    quote: "Professional, punctual, and the 3D designs they shared were exactly what we got in real life. No surprises, no excuses.",
+    name: "Arun & Sunita K.",
+    projectType: "Gachibowli"
   },
   {
-    quote: "The process was rigorous, elegant, and transparent. Every material choice had a reason.",
-    name: "Sara & Omar",
-    projectType: "Dubai Apartment"
+    quote: "We gave ENR full creative freedom for our office. Best decision we made - clients comment on the space before the meeting even starts.",
+    name: "Siddharth M.",
+    projectType: "Director, Hyderabad Tech Firm"
   }
 ];

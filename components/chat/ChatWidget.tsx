@@ -1,16 +1,18 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Send, X } from "lucide-react";
+import { MessageCircle, Send, X } from "lucide-react";
+import Image from "next/image";
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import ChatMessage from "@/components/chat/ChatMessage";
 import { Button } from "@/components/ui/button";
 import { useChatStore } from "@/store/chatStore";
 
 const prompts = [
-  "What design styles do you specialize in?",
-  "Show me living room inspirations",
-  "How do I book a consultation?"
+  "What does a modular kitchen cost in Hyderabad?",
+  "How long does a full home interior take?",
+  "Show me contemporary living room ideas",
+  "How do I book a free site visit?"
 ];
 
 function id() {
@@ -72,7 +74,7 @@ export default function ChatWidget() {
     } catch {
       updateMessage(
         assistantId,
-        "I can help with styles, catalog ideas, and consultation planning. The live AI endpoint is not configured yet, but the studio brief is ready."
+        "I can help with ENR's modular kitchens, full home interiors, commercial fit-outs, budgets, timelines, and free site visits. The live AI endpoint is not configured yet."
       );
     } finally {
       setLoading(false);
@@ -96,30 +98,33 @@ export default function ChatWidget() {
       <motion.button
         onClick={toggle}
         data-cursor-label="Open"
-        className="fixed bottom-6 right-6 z-[95] grid h-16 w-16 place-items-center rounded-full border border-gold bg-obsidian text-gold shadow-luxury"
+        className="fixed bottom-6 right-6 z-[95] grid h-16 w-16 place-items-center rounded-full bg-[var(--enr-accent-gold)] text-black shadow-luxury"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.96 }}
-        aria-label="Open LUMI chat"
+        aria-label="Open ENR Design Assistant chat"
       >
-        <Bot size={24} />
+        <MessageCircle size={24} />
       </motion.button>
       <AnimatePresence>
         {isOpen && (
           <motion.section
             role="dialog"
-            aria-label="LUMI design consultant"
-            className="fixed bottom-24 right-4 z-[96] flex h-[min(680px,calc(100vh-8rem))] w-[calc(100vw-2rem)] flex-col bg-obsidian text-ivory shadow-luxury sm:right-6 sm:w-[420px]"
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 180, damping: 24 }}
+            aria-label="ENR Design Assistant"
+            className="fixed bottom-0 right-0 top-0 z-[96] flex w-[calc(100vw-1.5rem)] max-w-[460px] flex-col border-l border-[var(--enr-border)] bg-[var(--enr-bg-secondary)] text-[var(--enr-text-primary)] shadow-luxury"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           >
-            <header className="flex items-center justify-between border-b border-ivory/10 p-5">
-              <div>
-                <p className="caption-label text-gold">LUMI</p>
-                <h2 className="font-display text-3xl">Design Consultant</h2>
+            <header className="flex items-center justify-between border-b border-[var(--enr-border)] bg-[var(--enr-bg-secondary)] p-5">
+              <div className="flex items-center gap-3">
+                <Image src="/logo/enr-logo.png" alt="ENR" width={32} height={32} className="h-8 w-8 object-contain" />
+                <div>
+                  <p className="caption-label text-[var(--enr-accent-gold)]">Powered by AI</p>
+                  <h2 className="font-display text-2xl">ENR Design Assistant</h2>
+                </div>
               </div>
-              <button onClick={close} className="grid h-10 w-10 place-items-center border border-ivory/15">
+              <button onClick={close} className="grid h-10 w-10 place-items-center border border-[var(--enr-border)]">
                 <X size={18} />
                 <span className="sr-only">Close chat</span>
               </button>
@@ -127,12 +132,12 @@ export default function ChatWidget() {
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-5">
               {messages.length === 0 && (
                 <div className="space-y-3">
-                  <p className="text-sm text-mist">Ask about styles, services, catalog concepts, or booking a consultation.</p>
+                  <p className="text-sm text-[var(--enr-text-muted)]">Ask about modular kitchens, wardrobes, false ceilings, or booking a site visit.</p>
                   {prompts.map((prompt) => (
                     <button
                       key={prompt}
                       onClick={() => void send(prompt)}
-                      className="block w-full border border-ivory/10 px-4 py-3 text-left text-sm transition hover:border-gold hover:text-gold"
+                      className="block w-full border border-[var(--enr-border)] px-4 py-3 text-left text-sm transition hover:border-[var(--enr-accent-gold)] hover:text-[var(--enr-accent-gold)]"
                     >
                       {prompt}
                     </button>
@@ -147,7 +152,7 @@ export default function ChatWidget() {
                   {[0, 1, 2].map((dot) => (
                     <motion.span
                       key={dot}
-                      className="h-2 w-2 rounded-full bg-gold"
+                      className="h-2 w-2 rounded-full bg-[var(--enr-accent-gold)]"
                       animate={{ opacity: [0.25, 1, 0.25], y: [0, -4, 0] }}
                       transition={{ duration: 0.9, repeat: Infinity, delay: dot * 0.12 }}
                     />
@@ -155,15 +160,15 @@ export default function ChatWidget() {
                 </div>
               )}
             </div>
-            <form onSubmit={submit} className="flex gap-2 border-t border-ivory/10 p-4">
+            <form onSubmit={submit} className="flex gap-2 border-t border-[var(--enr-border)] p-4">
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 onKeyDown={keyDown}
-                placeholder="Ask LUMI..."
-                className="min-w-0 flex-1 rounded-sm border border-ivory/15 bg-transparent px-4 text-sm outline-none focus:border-gold"
+                placeholder="Ask ENR..."
+                className="min-w-0 flex-1 border border-[var(--enr-border)] bg-transparent px-4 text-sm outline-none focus:border-[var(--enr-accent-gold)]"
               />
-              <Button type="submit" size="sm" disabled={loading || !input.trim()} aria-label="Send message">
+              <Button type="submit" size="sm" disabled={loading || !input.trim()} aria-label="Send message" className="bg-[var(--enr-accent-gold)] text-black hover:bg-[var(--enr-accent-glow)]">
                 <Send size={15} />
               </Button>
             </form>

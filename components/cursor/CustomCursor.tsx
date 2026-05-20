@@ -11,7 +11,7 @@ export default function CustomCursor() {
   const [label, setLabel] = useState("");
   const [active, setActive] = useState(false);
   const [enabled, setEnabled] = useState(false);
-  const size = useTransform(() => (active ? 10 : 40));
+  const size = useTransform(() => (active ? 56 : 8));
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -54,10 +54,18 @@ export default function CustomCursor() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[140] hidden items-center justify-center rounded-full border border-gold text-[10px] uppercase tracking-[0.16em] text-gold mix-blend-difference md:flex"
-      style={{ x, y, width: size, height: size, translateX: "-50%", translateY: "-50%" }}
+      className="pointer-events-none fixed left-0 top-0 z-[140] hidden items-center justify-center rounded-full border border-[var(--enr-accent-gold)] text-[10px] uppercase tracking-[0.18em] text-[var(--enr-accent-gold)] mix-blend-screen md:flex"
+      style={{
+        x,
+        y,
+        width: size,
+        height: size,
+        translateX: "-50%",
+        translateY: "-50%",
+        backgroundColor: active ? "rgba(201,168,76,0)" : "rgba(201,168,76,1)"
+      }}
     >
-      {label && !active ? label : null}
+      {label && active ? label : null}
     </motion.div>
   );
 }

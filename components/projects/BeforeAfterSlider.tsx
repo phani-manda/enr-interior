@@ -19,10 +19,11 @@ export default function BeforeAfterSlider() {
   }
 
   return (
-    <section className="bg-sand px-5 py-24 lg:px-10">
+    <section className="bg-enr-charcoal px-5 py-24 text-enr-ivory lg:px-10">
       <div className="mx-auto max-w-[1500px]">
-        <p className="caption-label text-mist">Before / After</p>
-        <h2 className="h1-type mb-10">The Transformation</h2>
+        <p className="caption-label text-enr-mist">Before / After</p>
+        <h2 className="h1-type mb-3">Before ENR. After ENR.</h2>
+        <p className="mb-10 text-enr-mist">Banjara Hills 3BHK - completed in 48 days</p>
         <div
           ref={ref}
           tabIndex={0}
@@ -32,19 +33,19 @@ export default function BeforeAfterSlider() {
           aria-valuemax={100}
           aria-valuenow={Math.round(x.get())}
           onKeyDown={keyDown}
-          className="relative h-[70vh] min-h-[460px] overflow-hidden bg-charcoal"
+          className="relative h-[70vh] min-h-[460px] overflow-hidden bg-enr-charcoal"
         >
           <Image src={after} alt="Finished interior after transformation" fill placeholder="blur" blurDataURL={blurDataURL} className="object-cover" />
           <motion.div className="absolute inset-0" style={{ clipPath: clip }}>
             <Image src={before} alt="Interior before transformation" fill placeholder="blur" blurDataURL={blurDataURL} className="object-cover" />
           </motion.div>
-          <span className="absolute left-6 top-6 bg-obsidian/70 px-4 py-2 text-xs uppercase tracking-[0.12em] text-ivory">Before</span>
-          <span className="absolute right-6 top-6 bg-obsidian/70 px-4 py-2 text-xs uppercase tracking-[0.12em] text-ivory">After</span>
+          <span className="absolute left-6 top-6 bg-enr-obsidian/70 px-4 py-2 text-xs uppercase tracking-[0.12em] text-enr-ivory">Before</span>
+          <span className="absolute right-6 top-6 bg-enr-obsidian/70 px-4 py-2 text-xs uppercase tracking-[0.12em] text-enr-ivory">After</span>
           <motion.div
             drag="x"
             dragConstraints={ref}
             dragElastic={0}
-            className="absolute top-0 h-full w-px bg-gold"
+            className="absolute top-0 h-full w-px bg-enr-gold"
             style={{ left: useTransform(x, (value) => `${value}%`) }}
             onDrag={(_, info) => {
               const bounds = ref.current?.getBoundingClientRect();
@@ -52,7 +53,7 @@ export default function BeforeAfterSlider() {
               x.set(Math.min(92, Math.max(8, ((info.point.x - bounds.left) / bounds.width) * 100)));
             }}
           >
-            <div className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-gold bg-obsidian text-gold">
+            <div className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-enr-gold bg-enr-obsidian text-enr-gold">
               ↔
             </div>
           </motion.div>

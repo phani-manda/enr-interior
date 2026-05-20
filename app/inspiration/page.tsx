@@ -7,7 +7,7 @@ import { blurDataURL } from "@/lib/utils";
 export function generateMetadata(): Metadata {
   return {
     title: "Inspiration",
-    description: "Explore LUMINE Studio's mood boards, material palettes, and interior design atmospheres.",
+    description: "Explore the design philosophies and style worlds that ENR Interiors brings to life.",
     alternates: { canonical: "/inspiration" },
     openGraph: { images: ["https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85"] }
   };
@@ -16,10 +16,11 @@ export function generateMetadata(): Metadata {
 export default function InspirationPage() {
   return (
     <>
-      <section className="bg-ivory px-5 pb-20 pt-40 lg:px-10">
+      <section className="bg-enr-obsidian px-5 pb-20 pt-40 text-enr-ivory lg:px-10">
         <div className="mx-auto max-w-[1500px]">
-          <p className="caption-label text-mist">INSPIRATION</p>
-          <h1 className="h1-type mt-4">The Art of Atmosphere</h1>
+          <p className="caption-label text-enr-mist">INSPIRATION</p>
+          <h1 className="h1-type mt-4">Where Function Meets Beauty</h1>
+          <p className="mt-6 max-w-2xl text-enr-parchment/75">Explore the design philosophies and style worlds that ENR Interiors brings to life - one space at a time.</p>
           <svg className="mt-8 h-2 w-72" viewBox="0 0 300 8" aria-hidden>
             <path d="M0 4 H300" stroke="#B89A6A" strokeWidth="1" strokeDasharray="300" strokeDashoffset="0" />
           </svg>
@@ -27,7 +28,7 @@ export default function InspirationPage() {
       </section>
       <InspirationExperience />
       <section className="grid bg-sand md:grid-cols-2">
-        <ParallaxImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=85" alt="LUMINE designer portrait" className="min-h-[620px]" />
+        <ParallaxImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=85" alt="ENR designer portrait" className="min-h-[620px]" />
         <div className="flex items-center p-8 lg:p-20">
           <div>
             <p className="caption-label text-mist">Designer’s Note</p>
