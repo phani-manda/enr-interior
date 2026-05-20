@@ -8,25 +8,25 @@ export function generateMetadata(): Metadata {
     title: "Gallery",
     description: "Browse ENR Interiors' curated gallery of luxury residential, kitchen, and commercial interiors across Hyderabad.",
     alternates: { canonical: "/gallery" },
-    openGraph: { images: ["https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"] }
+    openGraph: { images: ["/portfolio/living-room.jpeg"] }
   };
 }
 
 const galleryImages = [
-  { src: "/portfolio/living-3.jpg", title: "Warm Ambient Living", category: "Living Room", span: "col-span-2 row-span-2" },
-  { src: "/portfolio/kitchen-1.jpg", title: "L-Shaped Kitchen", category: "Kitchen", span: "" },
-  { src: "/portfolio/kids-room-1.jpg", title: "Kids Dream Room", category: "Kids Room", span: "" },
-  { src: "/portfolio/living-1.jpg", title: "Partition Living", category: "Living Room", span: "col-span-2" },
-  { src: "/portfolio/living-2.jpg", title: "Premium Living Suite", category: "Living Room", span: "" },
-  { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85", title: "Executive Office", category: "Commercial", span: "" },
-  { src: "/portfolio/living-3.jpg", title: "TV Unit Design", category: "Living Room", span: "" },
-  { src: "/portfolio/kids-room-1.jpg", title: "Study Corner", category: "Kids Room", span: "col-span-2 row-span-2" },
-  { src: "/portfolio/kitchen-1.jpg", title: "Kitchen LED Lighting", category: "Kitchen", span: "" },
-  { src: "/portfolio/living-1.jpg", title: "Dining Zone", category: "Dining", span: "" },
-  { src: "/portfolio/living-2.jpg", title: "Modern Interiors", category: "Living Room", span: "col-span-2" },
-  { src: "/portfolio/living-3.jpg", title: "Sofa Arrangement", category: "Living Room", span: "" },
-  { src: "/portfolio/kitchen-1.jpg", title: "Countertop Detail", category: "Kitchen", span: "" },
-  { src: "/portfolio/living-1.jpg", title: "False Ceiling Design", category: "Living Room", span: "" }
+  { src: "/portfolio/living-room.jpeg", title: "Warm Ambient Living", category: "Living Room", span: "col-span-2 row-span-2" },
+  { src: "/portfolio/kitchen.jpeg", title: "L-Shaped Kitchen", category: "Kitchen", span: "" },
+  { src: "/portfolio/kids-room.jpeg", title: "Kids Dream Room", category: "Kids Room", span: "" },
+  { src: "/portfolio/partition-living.jpeg", title: "Partition Living", category: "Living Room", span: "col-span-2" },
+  { src: "/portfolio/bedroom.jpeg", title: "Master Bedroom", category: "Bedroom", span: "" },
+  { src: "/portfolio/living-promo.jpeg", title: "Modern Interiors", category: "Living Room", span: "" },
+  { src: "/portfolio/kitchen.jpeg", title: "Kitchen LED Detail", category: "Kitchen", span: "" },
+  { src: "/portfolio/bedroom.jpeg", title: "Wardrobe Design", category: "Bedroom", span: "col-span-2 row-span-2" },
+  { src: "/portfolio/partition-living.jpeg", title: "Dining Zone", category: "Dining", span: "" },
+  { src: "/portfolio/living-room.jpeg", title: "TV Unit Design", category: "Living Room", span: "" },
+  { src: "/portfolio/kids-room.jpeg", title: "Study Corner", category: "Kids Room", span: "col-span-2" },
+  { src: "/portfolio/living-promo.jpeg", title: "Premium Living", category: "Living Room", span: "" },
+  { src: "/portfolio/kitchen.jpeg", title: "Countertop Detail", category: "Kitchen", span: "" },
+  { src: "/portfolio/partition-living.jpeg", title: "False Ceiling Design", category: "Living Room", span: "" }
 ];
 
 export default function GalleryPage() {
@@ -53,9 +53,9 @@ export default function GalleryPage() {
       {/* ─── MASONRY GALLERY ─── */}
       <section className="bg-[var(--color-obsidian)] px-5 pb-24 text-[var(--enr-text-primary)] lg:px-10">
         <div className="mx-auto grid max-w-[1500px] auto-rows-[280px] grid-cols-2 gap-3 md:grid-cols-4 lg:auto-rows-[320px]">
-          {galleryImages.map((img) => (
+          {galleryImages.map((img, i) => (
             <div
-              key={img.title}
+              key={`${img.title}-${i}`}
               className={`group relative overflow-hidden ${img.span}`}
               data-cursor-label="View"
             >

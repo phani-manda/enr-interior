@@ -11,8 +11,8 @@ const scenes = [
   {
     style: "Contemporary",
     title: "Contemporary Indian",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
-    secondary: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=85",
+    image: "/portfolio/partition-living.jpeg",
+    secondary: "/portfolio/living-room.jpeg",
     materials: "Teak wood, brushed brass, handloom textiles",
     color: "Warm neutrals, antique gold, deep wood",
     mood: "Grounded / Cultured / Proudly Indian"
@@ -20,8 +20,8 @@ const scenes = [
   {
     style: "Modern Luxe",
     title: "Modern Luxe Kitchen",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85",
-    secondary: "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=900&q=85",
+    image: "/portfolio/kitchen.jpeg",
+    secondary: "/portfolio/living-promo.jpeg",
     materials: "Lacquered MDF, quartz counters, Hettich hardware",
     color: "Charcoal, champagne gold, clean white",
     mood: "Precision / Gleaming / Effortless"
@@ -29,20 +29,20 @@ const scenes = [
   {
     style: "Royal Classic",
     title: "Royal Classic Living",
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
-    secondary: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85",
+    image: "/portfolio/living-room.jpeg",
+    secondary: "/portfolio/bedroom.jpeg",
     materials: "Italian marble, velvet upholstery, gold leaf accents",
     color: "Ivory, old gold, deep walnut",
     mood: "Opulent / Timeless / Statement"
   },
   {
     style: "Scandinavian",
-    title: "Scandinavian Calm Bedroom",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
-    secondary: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85",
-    materials: "White oak, linen, concrete textures, soft greys",
-    color: "Warm white, pale grey, light oak",
-    mood: "Restful / Breathable / Uncluttered"
+    title: "Kids Dream Room",
+    image: "/portfolio/kids-room.jpeg",
+    secondary: "/portfolio/bedroom.jpeg",
+    materials: "White oak, linen, LED art, soft pastels",
+    color: "Warm white, pale grey, blush pink",
+    mood: "Restful / Playful / Imaginative"
   }
 ];
 
@@ -144,18 +144,18 @@ function Info({ label, value }: { label: string; value: string }) {
 
 function MaterialExplorer() {
   const materials = [
-    ["Lacquered MDF", "Gloss finish", "Kitchen shutters", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=700&q=85"],
-    ["Teak Wood", "Indian hardwood", "Doors, accents", "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=85"],
-    ["Italian Marble", "Premium stone", "Floors, counters", "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=700&q=85"],
-    ["Quartz Stone", "Engineered surface", "Kitchen counters", "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=700&q=85"],
-    ["Engineered Wood", "Stable core", "Wardrobes, storage", "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=700&q=85"],
-    ["Velvet Fabric", "Soft touch", "Sofas, headboards", "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=85"],
-    ["Brushed Brass", "Warm metal", "Handles, trims", "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=700&q=85"],
-    ["Hettich Hardware", "German fittings", "Kitchen systems", "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=700&q=85"],
-    ["Back-painted Glass", "Reflective surface", "Backsplashes", "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=700&q=85"],
-    ["Veneer Finish", "Natural grain", "Wall panels", "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=85"],
-    ["Porcelain Tiles", "Durable surface", "Bathrooms, floors", "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=85"],
-    ["PU Paint", "Seamless finish", "Premium shutters", "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=700&q=85"]
+    ["Lacquered MDF", "Gloss finish", "Kitchen shutters", "/portfolio/kitchen.jpeg"],
+    ["Teak Wood", "Indian hardwood", "Doors, accents", "/portfolio/partition-living.jpeg"],
+    ["Italian Marble", "Premium stone", "Floors, counters", "/portfolio/living-room.jpeg"],
+    ["Quartz Stone", "Engineered surface", "Kitchen counters", "/portfolio/kitchen.jpeg"],
+    ["Engineered Wood", "Stable core", "Wardrobes, storage", "/portfolio/bedroom.jpeg"],
+    ["Velvet Fabric", "Soft touch", "Sofas, headboards", "/portfolio/living-room.jpeg"],
+    ["Brushed Brass", "Warm metal", "Handles, trims", "/portfolio/partition-living.jpeg"],
+    ["Hettich Hardware", "German fittings", "Kitchen systems", "/portfolio/kitchen.jpeg"],
+    ["Back-painted Glass", "Reflective surface", "Backsplashes", "/portfolio/kitchen.jpeg"],
+    ["Veneer Finish", "Natural grain", "Wall panels", "/portfolio/partition-living.jpeg"],
+    ["Porcelain Tiles", "Durable surface", "Bathrooms, floors", "/portfolio/bedroom.jpeg"],
+    ["PU Paint", "Seamless finish", "Premium shutters", "/portfolio/kitchen.jpeg"]
   ];
   return (
     <section className="bg-[var(--color-obsidian)] px-5 py-28 text-[var(--enr-text-primary)] lg:px-10">

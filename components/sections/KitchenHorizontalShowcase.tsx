@@ -10,19 +10,19 @@ const kitchens = [
     title: "Island",
     subtitle: "The social kitchen",
     materials: "Hettich Hardware / Lacquered MDF / Quartz Counters",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1800&q=90"
+    image: "/portfolio/kitchen.jpeg"
   },
   {
     title: "L-Shaped",
     subtitle: "India's favourite format",
     materials: "Acrylic Shutters / Tandem Drawers / Profile Handles",
-    image: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1800&q=90"
+    image: "/portfolio/kitchen.jpeg"
   },
   {
     title: "Parallel",
     subtitle: "Maximum efficiency",
     materials: "Back-painted Glass / Granite / Hafele Fittings",
-    image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1800&q=90"
+    image: "/portfolio/kitchen.jpeg"
   }
 ];
 

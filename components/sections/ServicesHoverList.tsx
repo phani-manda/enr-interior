@@ -13,7 +13,7 @@ const services = [
     subtitle: "Full Home Interiors",
     meta: "Living rooms / bedrooms / wardrobes / false ceilings / lighting",
     description: "Complete home transformations with bespoke material palettes, precision storage, and spaces designed for the way you actually live.",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",
+    image: "/portfolio/living-room.jpeg",
     href: "/projects"
   },
   {
@@ -21,7 +21,7 @@ const services = [
     subtitle: "Flagship Service",
     meta: "Island / L-shaped / parallel / U-shaped / Hettich & Hafele hardware",
     description: "Engineered kitchens built for Indian cooking — with premium hardware, quartz counters, and layouts that make daily life effortless.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1800&q=85",
+    image: "/portfolio/kitchen.jpeg",
     href: "/kitchens"
   },
   {

@@ -13,7 +13,7 @@ export function generateMetadata(): Metadata {
     title: "Premium Interior Designs in Hyderabad",
     description: "Interiors That Define You. ENR Interiors crafts ultra-premium modular kitchens, living rooms, bedrooms, and bespoke spaces for discerning homeowners across Hyderabad.",
     alternates: { canonical: "/" },
-    openGraph: { images: ["https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"] }
+    openGraph: { images: ["/portfolio/living-room.jpeg"] }
   };
 }
 
@@ -41,35 +41,35 @@ const featuredProjects = [
     title: "Warm Ambient Living",
     category: "Full Home Interior",
     area: "3,200 sq.ft",
-    image: "/portfolio/living-3.jpg",
+    image: "/portfolio/living-room.jpeg",
     span: "md:col-span-2 md:row-span-2"
   },
   {
     title: "Living with Partition",
     category: "Contemporary Residential",
     area: "1,800 sq.ft",
-    image: "/portfolio/living-1.jpg",
+    image: "/portfolio/partition-living.jpeg",
     span: ""
   },
   {
     title: "L-Shaped Kitchen",
     category: "Modular Kitchen",
     area: "210 sq.ft",
-    image: "/portfolio/kitchen-1.jpg",
+    image: "/portfolio/kitchen.jpeg",
     span: ""
   },
   {
     title: "Kids Dream Room",
     category: "Kids Bedroom",
     area: "180 sq.ft",
-    image: "/portfolio/kids-room-1.jpg",
+    image: "/portfolio/kids-room.jpeg",
     span: ""
   },
   {
-    title: "Premium Living Suite",
-    category: "Modern Interiors",
-    area: "2,400 sq.ft",
-    image: "/portfolio/living-2.jpg",
+    title: "Master Bedroom Suite",
+    category: "Luxury Bedroom",
+    area: "320 sq.ft",
+    image: "/portfolio/bedroom.jpeg",
     span: ""
   }
 ];
@@ -78,22 +78,22 @@ const designStyles = [
   {
     name: "Contemporary Warm",
     description: "Wooden partitions, warm lighting, and marble floors — modern living with Indian warmth.",
-    image: "/portfolio/living-1.jpg"
+    image: "/portfolio/partition-living.jpeg"
   },
   {
     name: "Modern Luxe",
     description: "LED-lit TV units, L-shaped sofas, and ambient ceiling design — effortless premium.",
-    image: "/portfolio/living-3.jpg"
+    image: "/portfolio/living-room.jpeg"
   },
   {
     name: "Kitchen Studio",
     description: "L-shaped layouts, black granite, warm LED backlighting — built for Indian cooking.",
-    image: "/portfolio/kitchen-1.jpg"
+    image: "/portfolio/kitchen.jpeg"
   },
   {
     name: "Whimsical Kids",
     description: "Moon-and-stars LED art, pastel tones, custom study desks — rooms that spark imagination.",
-    image: "/portfolio/kids-room-1.jpg"
+    image: "/portfolio/kids-room.jpeg"
   }
 ];
 
@@ -175,7 +175,7 @@ export default function HomePage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative flex min-h-screen overflow-hidden bg-[var(--color-obsidian)] px-5 text-[var(--enr-text-primary)] lg:px-10">
         <Image
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90"
+          src="/portfolio/living-room.jpeg"
           alt="Cinematic luxury living room by ENR Interiors"
           fill
           priority
@@ -312,7 +312,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <ParallaxImage
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85"
+                src="/portfolio/partition-living.jpeg"
                 alt="ENR design team at work"
                 className="aspect-[4/5]"
               />
@@ -497,7 +497,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden md:h-auto md:min-h-[700px]">
             <Image
-              src="/portfolio/kitchen-1.jpg"
+              src="/portfolio/kitchen.jpeg"
               alt="ENR luxury modular kitchen"
               fill
               placeholder="blur"

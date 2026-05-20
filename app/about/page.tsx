@@ -11,7 +11,7 @@ export function generateMetadata(): Metadata {
     title: "About ENR",
     description: "Meet ENR Interiors — a Hyderabad interior design studio built on trust, obsessive detail, and durable execution. 11+ years of premium craftsmanship.",
     alternates: { canonical: "/about" },
-    openGraph: { images: ["https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85"] }
+    openGraph: { images: ["/portfolio/partition-living.jpeg"] }
   };
 }
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* ─── CINEMATIC HERO ─── */}
       <section className="relative min-h-screen overflow-hidden bg-[var(--color-obsidian)] text-[var(--enr-text-primary)]">
         <Image
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1800&q=85"
+          src="/portfolio/partition-living.jpeg"
           alt="ENR Interiors design team"
           fill
           priority
