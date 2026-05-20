@@ -17,13 +17,13 @@ export function DialogContent({
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>) {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className="fixed inset-0 z-[90] bg-obsidian/70 backdrop-blur-sm" />
+      <DialogPrimitive.Overlay className="fixed inset-0 z-[90] bg-[var(--color-obsidian)]/80 backdrop-blur-sm" />
       <DialogPrimitive.Content
-        className={cn("fixed inset-0 z-[91] bg-ivory text-charcoal", className)}
+        className={cn("fixed inset-0 z-[91] bg-[var(--color-obsidian)] text-[var(--enr-text-primary)]", className)}
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="absolute right-6 top-6 z-10 grid h-11 w-11 place-items-center border border-charcoal/20 text-charcoal transition hover:border-gold hover:text-gold">
+        <DialogPrimitive.Close className="absolute right-6 top-6 z-10 grid h-11 w-11 place-items-center border border-[var(--enr-border)] text-[var(--enr-text-primary)] transition-all hover:border-[var(--enr-accent-gold)] hover:text-[var(--enr-accent-gold)]">
           <X size={18} />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>

@@ -11,9 +11,10 @@ import MobileMenu from "./MobileMenu";
 
 const navLinks = [
   ["Our Work", "/projects"],
-  ["Modular Kitchens", "/kitchens"],
-  ["Wardrobes", "/catalog"],
-  ["Studio", "/about"]
+  ["Design Catalog", "/catalog"],
+  ["Kitchens", "/kitchens"],
+  ["About ENR", "/about"],
+  ["Get in Touch", "/contact"]
 ];
 
 function MagneticLink({ href, label, active }: { href: string; label: string; active: boolean }) {
@@ -25,11 +26,11 @@ function MagneticLink({ href, label, active }: { href: string; label: string; ac
       onMouseMove={magnetic.onMouseMove}
       onMouseLeave={magnetic.onMouseLeave}
       style={{ x: magnetic.x, y: magnetic.y }}
-      className="group relative px-2 py-4 text-[10px] uppercase tracking-[0.28em] text-[var(--enr-text-primary)] transition hover:text-[var(--enr-accent-gold)]"
+      className="group relative px-3 py-4 text-[10px] font-medium uppercase tracking-[0.28em] text-[var(--enr-text-primary)] transition-colors duration-300 hover:text-[var(--enr-accent-gold)]"
     >
       {label}
-      <span className="absolute bottom-2 left-2 right-2 h-px origin-left scale-x-0 bg-[var(--enr-accent-gold)] transition-transform duration-500 group-hover:scale-x-100" />
-      {active && <span className="absolute bottom-2 left-2 right-2 h-px bg-[var(--enr-accent-gold)]" />}
+      <span className="absolute bottom-2 left-3 right-3 h-px origin-left scale-x-0 bg-[var(--enr-accent-gold)] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-x-100" />
+      {active && <span className="absolute bottom-2 left-3 right-3 h-px bg-[var(--enr-accent-gold)]" />}
     </motion.a>
   );
 }
@@ -43,25 +44,43 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 32));
 
+  /* Determine if current page has a light hero section */
+  const isLightPage = ["/about", "/contact"].includes(pathname);
+
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-4 z-[80] transition-colors"
+        className="fixed inset-x-0 top-0 z-[80]"
+        initial={false}
         animate={{
-          backgroundColor: "rgba(10,10,10,0.70)",
-          color: "#F5F0E8",
-          backdropFilter: "blur(18px)"
+          backgroundColor: scrolled ? "rgba(26,26,24,0.92)" : "rgba(26,26,24,0.60)",
+          backdropFilter: scrolled ? "blur(20px)" : "blur(8px)"
         }}
+        transition={{ duration: 0.4 }}
       >
-        <div className="relative mx-auto flex h-16 max-w-[1320px] items-center justify-between border border-[var(--enr-border)] px-4 lg:px-6">
-          <Link href="/" className="px-1 py-1">
-            <Image src="/logo/enr-logo.png" alt="ENR Interiors" width={100} height={100} className="h-11 w-auto object-contain mix-blend-screen" priority />
+        <div className="relative mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 lg:px-8">
+          {/* Logo */}
+          <Link href="/" className="relative z-10 flex items-center">
+            <div className={`flex items-center transition-all duration-300 ${isLightPage && !scrolled ? "rounded-full bg-[var(--color-obsidian)]/80 px-3 py-1.5" : ""}`}>
+              <Image
+                src="/logo/enr-logo.png"
+                alt="ENR Interiors"
+                width={100}
+                height={100}
+                className="h-12 w-auto object-contain mix-blend-screen"
+                priority
+              />
+            </div>
           </Link>
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 md:flex">
+
+          {/* Desktop Nav */}
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
             {navLinks.map(([label, href]) => (
               <MagneticLink key={href} href={href} label={label} active={pathname === href} />
             ))}
           </nav>
+
+          {/* CTA */}
           <motion.a
             ref={ctaMagnet.ref}
             href="/contact"
@@ -69,19 +88,27 @@ export default function Navbar() {
             onMouseMove={ctaMagnet.onMouseMove}
             onMouseLeave={ctaMagnet.onMouseLeave}
             style={{ x: ctaMagnet.x, y: ctaMagnet.y }}
-            className="hidden border border-[var(--enr-accent-gold)] px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--enr-accent-gold)] transition hover:scale-[1.02] hover:bg-[var(--enr-accent-gold)] hover:text-black md:block"
+            className="hidden items-center gap-2 bg-[var(--enr-accent-gold)] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-obsidian)] transition-all duration-300 hover:bg-[var(--enr-accent-glow)] hover:shadow-gold-glow md:inline-flex"
           >
-            Book Site Visit
+            Free Site Visit
           </motion.a>
-          <button onClick={() => setOpen(true)} className="grid h-11 w-11 place-items-center md:hidden">
-            <Menu size={22} />
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setOpen(true)}
+            className="grid h-11 w-11 place-items-center border border-[var(--enr-border)] text-[var(--enr-text-primary)] transition-colors hover:border-[var(--enr-accent-gold)] hover:text-[var(--enr-accent-gold)] md:hidden"
+          >
+            <Menu size={20} />
             <span className="sr-only">Open menu</span>
           </button>
+
+          {/* Gold scroll line */}
           <motion.span
             aria-hidden
-            className="absolute bottom-0 left-0 h-px bg-[var(--enr-accent-gold)]"
+            className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-[var(--enr-accent-gold)] to-transparent"
             initial={false}
-            animate={{ width: scrolled ? "100%" : "0%", opacity: scrolled ? 1 : 0 }}
+            animate={{ width: scrolled ? "100%" : "0%", opacity: scrolled ? 0.6 : 0 }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
           />
         </div>
       </motion.header>

@@ -1,27 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --enr-bg-primary: #0A0A0A;
-  --enr-bg-secondary: #141414;
-  --enr-accent-gold: #C9A84C;
-  --enr-accent-glow: #E2C47A;
-  --enr-text-primary: #F5F0E8;
-  --enr-text-muted: #888888;
-  --enr-border: rgba(201, 168, 76, 0.15);
-  --color-obsidian: var(--enr-bg-primary);
-  --color-charcoal: var(--enr-bg-secondary);
-  --color-graphite: #1F1F1F;
-  --color-gold: var(--enr-accent-gold);
-  --color-gold-light: var(--enr-accent-glow);
-  --color-gold-muted: rgba(201, 168, 76, 0.45);
-  --color-ivory: var(--enr-text-primary);
-  --color-parchment: #D8D0C2;
-  --color-mist: var(--enr-text-muted);
-  --color-cream-section: #0F0F0F;
-  --color-sand: var(--color-charcoal);
-  --font-display-size: clamp(4.8rem, 12vw, 11.5rem);
-  --font-h1-size: clamp(3.5rem, 7vw, 7rem);
-  --font-h2-size: clamp(2.4rem, 4.5vw, 4.8rem);
+  /* ─── ENR Brand Tokens ─── */
+  --color-obsidian:      #1A1A18;
+  --color-charcoal:      #252521;
+  --color-graphite:      #2E2E2A;
+  --color-gold:          #C9A84C;
+  --color-gold-light:    #E2C47A;
+  --color-gold-muted:    #8A6E32;
+  --color-ivory:         #F5F0E8;
+  --color-parchment:     #EDE5D4;
+  --color-mist:          #7A7870;
+  --color-cream-section: #F9F6F0;
+  --color-sand:          var(--color-charcoal);
+
+  /* ─── Semantic Aliases ─── */
+  --enr-bg-primary:      #1A1A18;
+  --enr-bg-secondary:    #252521;
+  --enr-accent-gold:     #C9A84C;
+  --enr-accent-glow:     #E2C47A;
+  --enr-text-primary:    #F5F0E8;
+  --enr-text-muted:      #7A7870;
+  --enr-border:          rgba(201, 168, 76, 0.15);
+
+  /* ─── Typography Scale ─── */
+  --font-display-size: clamp(4rem, 10vw, 5.5rem);
+  --font-h1-size:      clamp(3rem, 6vw, 4rem);
+  --font-h2-size:      clamp(2rem, 4vw, 2.625rem);
 }
 
 @theme inline {
@@ -54,7 +59,7 @@
   --color-mist: var(--color-mist);
   --color-obsidian: var(--color-obsidian);
   --font-display: var(--font-playfair);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-raleway);
 }
 
 * {
@@ -72,20 +77,21 @@ body {
   min-height: 100vh;
   background: var(--color-obsidian);
   color: var(--color-ivory);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-raleway), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.8;
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
 }
 
+/* ─── Subtle Grain Texture Overlay ─── */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 150;
   pointer-events: none;
-  opacity: 0.08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
 }
 
@@ -128,12 +134,13 @@ select:focus-visible,
   outline-offset: 4px;
 }
 
+/* ─── Display Typography ─── */
 .display-type {
   font-family: var(--font-playfair), Georgia, serif;
   font-size: var(--font-display-size);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .h1-type {
@@ -141,6 +148,7 @@ select:focus-visible,
   font-size: var(--font-h1-size);
   font-weight: 700;
   line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
 .h2-type {
@@ -150,9 +158,10 @@ select:focus-visible,
   line-height: 1.1;
 }
 
+/* ─── Label Typography ─── */
 .h3-label,
 .caption-label {
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-raleway), system-ui, sans-serif;
   text-transform: uppercase;
 }
 
@@ -170,6 +179,7 @@ select:focus-visible,
   line-height: 1.5;
 }
 
+/* ─── Gold Underline Interaction ─── */
 .gold-underline {
   background-image: linear-gradient(var(--color-gold), var(--color-gold));
   background-position: 0 100%;
@@ -182,6 +192,7 @@ select:focus-visible,
   background-size: 100% 1px;
 }
 
+/* ─── Image Noise Overlay ─── */
 .image-noise::after {
   content: "";
   position: absolute;
@@ -193,6 +204,7 @@ select:focus-visible,
   mix-blend-mode: overlay;
 }
 
+/* ─── Scrollbar ─── */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -202,6 +214,13 @@ select:focus-visible,
   display: none;
 }
 
+/* ─── Gold Divider Animation ─── */
+@keyframes gold-line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ─── Marquee ─── */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -211,6 +230,41 @@ select:focus-visible,
   }
 }
 
+/* ─── Shimmer Effect ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Float Animation ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ─── Architectural Gold Divider ─── */
+.gold-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.5;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+}
+
+.gold-divider::before { left: 0; }
+.gold-divider::after { right: 0; }
+
+/* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

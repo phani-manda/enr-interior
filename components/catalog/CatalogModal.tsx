@@ -24,7 +24,8 @@ export default function CatalogModal({ item, onOpenChange }: CatalogModalProps) 
     <Dialog open={Boolean(item)} onOpenChange={onOpenChange}>
       <DialogContent>
         <div className="grid h-full overflow-y-auto md:grid-cols-[58%_42%] md:overflow-hidden">
-          <div className="relative h-[42vh] min-h-[320px] bg-enr-charcoal md:h-auto md:min-h-screen">
+          {/* Image Panel */}
+          <div className="relative h-[42vh] min-h-[320px] bg-[var(--color-charcoal)] md:h-auto md:min-h-screen">
             <Image
               key={item.images[active]}
               src={item.images[active]}
@@ -40,7 +41,11 @@ export default function CatalogModal({ item, onOpenChange }: CatalogModalProps) 
                 <button
                   key={image}
                   onClick={() => setActive(index)}
-                  className="relative h-16 w-20 overflow-hidden border border-enr-ivory/40"
+                  className={`relative h-16 w-20 overflow-hidden border transition-all ${
+                    active === index
+                      ? "border-[var(--enr-accent-gold)]"
+                      : "border-white/30 hover:border-white/60"
+                  }`}
                   aria-label={`Show ${item.title} image ${index + 1}`}
                 >
                   <Image src={image} alt="" fill placeholder="blur" blurDataURL={blurDataURL} className="object-cover" />
@@ -48,47 +53,90 @@ export default function CatalogModal({ item, onOpenChange }: CatalogModalProps) 
               ))}
             </div>
           </div>
-          <aside className="bg-[var(--enr-bg-secondary)] px-6 py-12 text-[var(--enr-text-primary)] md:overflow-y-auto md:px-12 md:py-20">
-            <p className="caption-label text-enr-gold-muted">{styleLabels[item.style]} / {roomLabels[item.room]} / {budgetLabels[item.budgetRange]}</p>
-            <DialogTitle className="h1-type mt-3">{item.title}</DialogTitle>
-            <DialogDescription className="mt-6 text-base leading-8 text-[var(--enr-text-muted)]">{item.description}</DialogDescription>
+
+          {/* Details Panel */}
+          <aside className="bg-[var(--color-obsidian)] px-6 py-12 text-[var(--enr-text-primary)] md:overflow-y-auto md:px-12 md:py-20">
+            <p className="caption-label text-[var(--enr-accent-gold)]">
+              {styleLabels[item.style]} / {roomLabels[item.room]} / {budgetLabels[item.budgetRange]}
+            </p>
+            <DialogTitle className="h1-type mt-4">{item.title}</DialogTitle>
+            <DialogDescription className="mt-6 text-base leading-8 text-[var(--enr-text-muted)]">
+              {item.description}
+            </DialogDescription>
+
             <div className="mt-10 grid gap-8">
+              {/* Materials */}
               <div>
-                <p className="caption-label mb-3 flex items-center gap-2 text-enr-mist"><Sparkles size={14} /> Materials</p>
+                <p className="caption-label mb-3 flex items-center gap-2 text-[var(--enr-text-muted)]">
+                  <Sparkles size={14} className="text-[var(--enr-accent-gold)]" /> Materials
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {item.materials.map((material) => (
-                    <span key={material} className="border border-enr-obsidian/15 px-3 py-2 text-xs uppercase tracking-[0.08em]">
+                    <span
+                      key={material}
+                      className="border border-[var(--enr-border)] px-3 py-2 text-xs uppercase tracking-[0.08em]"
+                    >
                       {material}
                     </span>
                   ))}
                 </div>
               </div>
+
+              {/* Color Story */}
               <div>
-                <p className="caption-label mb-3 flex items-center gap-2 text-enr-mist"><Palette size={14} /> Color Story</p>
+                <p className="caption-label mb-3 flex items-center gap-2 text-[var(--enr-text-muted)]">
+                  <Palette size={14} className="text-[var(--enr-accent-gold)]" /> Color Story
+                </p>
                 <div className="flex gap-3">
                   {item.colorStory.map((color) => (
-                    <span key={color} className="h-9 w-9 rounded-full border border-enr-obsidian/10" style={{ backgroundColor: color }} />
+                    <span
+                      key={color}
+                      className="h-9 w-9 border border-[var(--enr-border)]"
+                      style={{ backgroundColor: color }}
+                    />
                   ))}
                 </div>
               </div>
-              <p className="caption-label flex items-center gap-2 text-enr-mist"><Ruler size={14} /> Area: <span className="text-[var(--enr-text-primary)]">{item.sqft}</span></p>
+
+              {/* Area */}
+              <p className="caption-label flex items-center gap-2 text-[var(--enr-text-muted)]">
+                <Ruler size={14} className="text-[var(--enr-accent-gold)]" /> Area:{" "}
+                <span className="text-[var(--enr-text-primary)]">{item.sqft}</span>
+              </p>
+
+              {/* Highlights */}
               <div>
-                <p className="caption-label mb-3 text-enr-mist">Highlights</p>
+                <p className="caption-label mb-3 text-[var(--enr-text-muted)]">Highlights</p>
                 <ul className="space-y-2 text-sm text-[var(--enr-text-muted)]">
                   {item.highlights.map((highlight) => (
-                    <li key={highlight}>- {highlight}</li>
+                    <li key={highlight} className="flex items-center gap-2">
+                      <span className="h-1 w-1 bg-[var(--enr-accent-gold)]" />
+                      {highlight}
+                    </li>
                   ))}
                 </ul>
               </div>
-              <p className="caption-label text-enr-mist">Timeline: <span className="text-[var(--enr-text-primary)]">{item.estimatedTimeline}</span></p>
+
+              {/* Timeline */}
+              <p className="caption-label text-[var(--enr-text-muted)]">
+                Timeline: <span className="text-[var(--enr-text-primary)]">{item.estimatedTimeline}</span>
+              </p>
             </div>
+
+            {/* Actions */}
             <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-              <Button onClick={() => (window.location.href = `/contact?design=${encodeURIComponent(item.title)}`)}>Request This Design</Button>
+              <Button onClick={() => (window.location.href = `/contact?design=${encodeURIComponent(item.title)}`)}>
+                Request This Design
+              </Button>
               <Button
                 variant="outline"
-                onClick={() => setContextPrompt(`I'm looking at the ${item.title} design in your catalog. Can you tell me more about this style, the materials used, and roughly what it would cost to execute in Hyderabad?`)}
+                onClick={() =>
+                  setContextPrompt(
+                    `I'm looking at the ${item.title} design in your catalog. Can you tell me more about this style, the materials used, and roughly what it would cost to execute in Hyderabad?`
+                  )
+                }
               >
-                <MessageCircle size={16} /> Ask ENR&apos;s AI Designer
+                <MessageCircle size={16} /> Ask ENR&apos;s AI
               </Button>
             </div>
           </aside>

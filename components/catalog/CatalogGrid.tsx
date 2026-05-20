@@ -55,29 +55,32 @@ export default function CatalogGrid({ items = catalogItems, lockedRoom, showFilt
   return (
     <>
       {showFilters && (
-        <section className="sticky top-20 z-40 border-y border-[var(--enr-border)] bg-[rgba(10,10,10,.92)] px-5 py-4 text-[var(--enr-text-primary)] backdrop-blur lg:px-10">
-          <div className="mx-auto flex max-w-[1500px] gap-4 overflow-x-auto scrollbar-hide">
-            <FilterGroup label="Room Type" values={rooms} labels={roomLabels} active={filters.room} onClick={(value) => setFilter("room", value)} />
+        <section className="sticky top-[72px] z-40 border-y border-[var(--enr-border)] bg-[var(--color-obsidian)]/95 px-5 py-4 text-[var(--enr-text-primary)] backdrop-blur-lg lg:px-10">
+          <div className="mx-auto flex max-w-[1500px] gap-5 overflow-x-auto scrollbar-hide">
+            <FilterGroup label="Room" values={rooms} labels={roomLabels} active={filters.room} onClick={(value) => setFilter("room", value)} />
             <FilterGroup label="Style" values={styles} labels={styleLabels} active={filters.style} onClick={(value) => setFilter("style", value)} />
             <FilterGroup label="Budget" values={budgets} labels={budgetLabels} active={filters.budgetRange} onClick={(value) => setFilter("budgetRange", value)} />
           </div>
+          {/* Active filter chips */}
           <div className="mx-auto mt-3 flex max-w-[1500px] flex-wrap gap-2">
             {Object.entries(filters).map(([key, value]) =>
               value && !(lockedRoom && key === "room") ? (
                 <button
                   key={key}
                   onClick={() => setFilters((current) => ({ ...current, [key]: undefined }))}
-                  className="bg-[var(--enr-accent-gold)] px-3 py-1 text-xs uppercase tracking-[0.08em] text-black"
+                  className="bg-[var(--enr-accent-gold)] px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-[var(--color-obsidian)] transition-colors hover:bg-[var(--enr-accent-glow)]"
                 >
-                  {labelForFilterValue(value)} x
+                  {labelForFilterValue(value)} ×
                 </button>
               ) : null
             )}
           </div>
         </section>
       )}
-      <section className="bg-[var(--enr-bg-primary)] px-5 py-16 text-[var(--enr-text-primary)] lg:px-10">
-        <motion.div layout className="mx-auto grid max-w-[1500px] auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+
+      {/* Grid */}
+      <section className="bg-[var(--color-obsidian)] px-5 py-16 text-[var(--enr-text-primary)] lg:px-10">
+        <motion.div layout className="mx-auto grid max-w-[1500px] auto-rows-[280px] grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4">
           <AnimatePresence>
             {filtered.map((item, index) => (
               <motion.button
@@ -88,29 +91,40 @@ export default function CatalogGrid({ items = catalogItems, lockedRoom, showFilt
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.04, duration: 0.5 }}
                 className={cn(
-                  "group relative overflow-hidden border border-transparent bg-enr-charcoal text-left transition hover:border-enr-gold",
+                  "group relative overflow-hidden border border-[var(--enr-border)] bg-[var(--color-charcoal)] text-left transition-all duration-300 hover:border-[var(--enr-accent-gold)]/50 hover:shadow-gold-subtle",
                   index % 5 === 0 && "md:col-span-2 md:row-span-2",
                   index % 7 === 0 && "lg:row-span-2"
                 )}
               >
+                {/* Premium badge */}
                 {item.tag && (
-                  <span className="absolute left-4 top-4 z-10 bg-enr-gold px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-enr-obsidian">
+                  <span className="absolute left-4 top-4 z-10 bg-[var(--enr-accent-gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-obsidian)]">
                     {item.tag}
                   </span>
                 )}
-                <Image src={item.images[0]} alt={item.title} fill placeholder="blur" blurDataURL={blurDataURL} sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-0 bg-enr-obsidian/86 p-5 text-enr-ivory backdrop-blur transition duration-500 md:translate-y-full md:group-hover:translate-y-0">
-                  <p className="caption-label text-enr-gold">{roomLabels[item.room]}</p>
-                  <h3 className="font-display text-4xl">{item.title}</h3>
-                  <p className="mt-2 text-sm">View Details -&gt;</p>
+                <Image
+                  src={item.images[0]}
+                  alt={item.title}
+                  fill
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-x-0 bottom-0 translate-y-0 bg-gradient-to-t from-[var(--color-obsidian)] via-[var(--color-obsidian)]/80 to-transparent p-5 text-[var(--enr-text-primary)] transition-all duration-500 md:translate-y-full md:group-hover:translate-y-0">
+                  <p className="caption-label text-[var(--enr-accent-gold)]">{roomLabels[item.room]}</p>
+                  <h3 className="mt-1 font-display text-3xl">{item.title}</h3>
+                  <p className="mt-2 text-sm text-[var(--enr-text-muted)]">View Details →</p>
                 </div>
               </motion.button>
             ))}
           </AnimatePresence>
         </motion.div>
       </section>
+
       <CatalogModal item={selected} onOpenChange={(open) => !open && setSelected(null)} />
     </>
   );
@@ -137,8 +151,10 @@ function FilterGroup<T extends string>({
           key={value}
           onClick={() => onClick(value)}
           className={cn(
-            "border border-[var(--enr-border)] px-4 py-2 text-xs uppercase tracking-[0.08em] transition hover:border-[var(--enr-accent-gold)]",
-            active === value && "border-[var(--enr-accent-gold)] bg-[var(--enr-accent-gold)] text-black"
+            "border px-4 py-2 text-xs uppercase tracking-[0.08em] transition-all duration-300",
+            active === value
+              ? "border-[var(--enr-accent-gold)] bg-[var(--enr-accent-gold)] text-[var(--color-obsidian)]"
+              : "border-[var(--enr-border)] hover:border-[var(--enr-accent-gold)] hover:text-[var(--enr-accent-gold)]"
           )}
         >
           {labels[value]}

@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
-  const x = useSpring(mouseX, { stiffness: 950, damping: 34, mass: 0.12 });
-  const y = useSpring(mouseY, { stiffness: 950, damping: 34, mass: 0.12 });
+  const x = useSpring(mouseX, { stiffness: 900, damping: 35, mass: 0.1 });
+  const y = useSpring(mouseY, { stiffness: 900, damping: 35, mass: 0.1 });
   const [label, setLabel] = useState("");
   const [active, setActive] = useState(false);
   const [enabled, setEnabled] = useState(false);
-  const size = useTransform(() => (active ? 56 : 8));
+  const size = useTransform(() => (active ? 64 : 8));
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -54,7 +54,7 @@ export default function CustomCursor() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[140] hidden items-center justify-center rounded-full border border-[var(--enr-accent-gold)] text-[10px] uppercase tracking-[0.18em] text-[var(--enr-accent-gold)] mix-blend-screen md:flex"
+      className="pointer-events-none fixed left-0 top-0 z-[140] hidden items-center justify-center border border-[var(--enr-accent-gold)] text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--enr-accent-gold)] mix-blend-screen md:flex"
       style={{
         x,
         y,
@@ -62,7 +62,8 @@ export default function CustomCursor() {
         height: size,
         translateX: "-50%",
         translateY: "-50%",
-        backgroundColor: active ? "rgba(201,168,76,0)" : "rgba(201,168,76,1)"
+        backgroundColor: active ? "rgba(201,168,76,0)" : "rgba(201,168,76,1)",
+        boxShadow: active ? "0 0 20px rgba(201,168,76,0.15)" : "none"
       }}
     >
       {label && active ? label : null}

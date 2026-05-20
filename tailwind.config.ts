@@ -42,7 +42,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-manrope)", "system-ui", "sans-serif"]
+        sans: ["var(--font-raleway)", "system-ui", "sans-serif"]
       },
       spacing: {
         18: "4.5rem",
@@ -55,7 +55,18 @@ const config: Config = {
         sm: "4px"
       },
       boxShadow: {
-        luxury: "0 24px 80px rgba(14,14,12,0.16)"
+        luxury: "0 24px 80px rgba(14,14,12,0.16)",
+        "gold-glow": "0 0 40px rgba(201,168,76,0.12)",
+        "gold-subtle": "0 0 20px rgba(201,168,76,0.08)"
+      },
+      keyframes: {
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        }
+      },
+      animation: {
+        "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
       }
     }
   },
