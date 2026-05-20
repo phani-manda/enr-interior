@@ -36,7 +36,7 @@ export default function KitchensPage() {
       {/* ─── CINEMATIC HERO ─── */}
       <section className="relative flex min-h-screen items-end overflow-hidden bg-[var(--color-obsidian)] px-5 pb-24 text-[var(--enr-text-primary)] lg:px-10">
         <Image
-          src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=2200&q=90"
+          src="/portfolio/kitchen-1.jpg"
           alt="Dark luxury modular kitchen"
           fill
           priority

@@ -38,62 +38,62 @@ const marqueeItems = [
 
 const featuredProjects = [
   {
-    title: "Jubilee Hills Villa",
+    title: "Warm Ambient Living",
     category: "Full Home Interior",
-    area: "5,200 sq.ft",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+    area: "3,200 sq.ft",
+    image: "/portfolio/living-3.jpg",
     span: "md:col-span-2 md:row-span-2"
   },
   {
-    title: "Gachibowli 3BHK",
-    category: "Modern Luxe",
+    title: "Living with Partition",
+    category: "Contemporary Residential",
     area: "1,800 sq.ft",
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=800&q=85",
+    image: "/portfolio/living-1.jpg",
     span: ""
   },
   {
-    title: "Island Kitchen Studio",
+    title: "L-Shaped Kitchen",
     category: "Modular Kitchen",
-    area: "320 sq.ft",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=85",
+    area: "210 sq.ft",
+    image: "/portfolio/kitchen-1.jpg",
     span: ""
   },
   {
-    title: "Kondapur Penthouse",
-    category: "Premium Residential",
-    area: "4,100 sq.ft",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85",
+    title: "Kids Dream Room",
+    category: "Kids Bedroom",
+    area: "180 sq.ft",
+    image: "/portfolio/kids-room-1.jpg",
     span: ""
   },
   {
-    title: "HITEC City Office",
-    category: "Commercial Fit-out",
-    area: "3,600 sq.ft",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85",
+    title: "Premium Living Suite",
+    category: "Modern Interiors",
+    area: "2,400 sq.ft",
+    image: "/portfolio/living-2.jpg",
     span: ""
   }
 ];
 
 const designStyles = [
   {
-    name: "Contemporary Indian",
-    description: "Teak, brass, and handloom — deeply rooted in Indian craft, elevated for modern living.",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85"
+    name: "Contemporary Warm",
+    description: "Wooden partitions, warm lighting, and marble floors — modern living with Indian warmth.",
+    image: "/portfolio/living-1.jpg"
   },
   {
     name: "Modern Luxe",
-    description: "Charcoal, champagne gold, and clean whites — gleaming surfaces with effortless precision.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=85"
+    description: "LED-lit TV units, L-shaped sofas, and ambient ceiling design — effortless premium.",
+    image: "/portfolio/living-3.jpg"
   },
   {
-    name: "Royal Classic",
-    description: "Italian marble, velvet, and gold leaf — timeless opulence that commands attention.",
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=85"
+    name: "Kitchen Studio",
+    description: "L-shaped layouts, black granite, warm LED backlighting — built for Indian cooking.",
+    image: "/portfolio/kitchen-1.jpg"
   },
   {
-    name: "Scandinavian Calm",
-    description: "White oak, linen, and soft greys — restful, breathable, uncluttered serenity.",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+    name: "Whimsical Kids",
+    description: "Moon-and-stars LED art, pastel tones, custom study desks — rooms that spark imagination.",
+    image: "/portfolio/kids-room-1.jpg"
   }
 ];
 
@@ -497,7 +497,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden md:h-auto md:min-h-[700px]">
             <Image
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=90"
+              src="/portfolio/kitchen-1.jpg"
               alt="ENR luxury modular kitchen"
               fill
               placeholder="blur"

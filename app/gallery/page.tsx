@@ -13,20 +13,20 @@ export function generateMetadata(): Metadata {
 }
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85", title: "Contemporary Living", category: "Living Room", span: "col-span-2 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=85", title: "Dark Kitchen Studio", category: "Kitchen", span: "" },
-  { src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=85", title: "Calm Bedroom Suite", category: "Bedroom", span: "" },
-  { src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85", title: "Royal Classic Villa", category: "Living Room", span: "col-span-2" },
-  { src: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=800&q=85", title: "Bright Parallel Kitchen", category: "Kitchen", span: "" },
+  { src: "/portfolio/living-3.jpg", title: "Warm Ambient Living", category: "Living Room", span: "col-span-2 row-span-2" },
+  { src: "/portfolio/kitchen-1.jpg", title: "L-Shaped Kitchen", category: "Kitchen", span: "" },
+  { src: "/portfolio/kids-room-1.jpg", title: "Kids Dream Room", category: "Kids Room", span: "" },
+  { src: "/portfolio/living-1.jpg", title: "Partition Living", category: "Living Room", span: "col-span-2" },
+  { src: "/portfolio/living-2.jpg", title: "Premium Living Suite", category: "Living Room", span: "" },
   { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85", title: "Executive Office", category: "Commercial", span: "" },
-  { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85", title: "Warm Indian Living", category: "Living Room", span: "" },
-  { src: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1200&q=85", title: "Luxe Master Suite", category: "Bedroom", span: "col-span-2 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=85", title: "L-Shaped Kitchen", category: "Kitchen", span: "" },
-  { src: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=85", title: "Spa Bathroom", category: "Bathroom", span: "" },
-  { src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=85", title: "Cloudnine Cafe", category: "Hospitality", span: "col-span-2" },
-  { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85", title: "Balcony Lounge", category: "Outdoor", span: "" },
-  { src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85", title: "Playful Kids Room", category: "Kids Room", span: "" },
-  { src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85", title: "Elegant Dining", category: "Dining", span: "" }
+  { src: "/portfolio/living-3.jpg", title: "TV Unit Design", category: "Living Room", span: "" },
+  { src: "/portfolio/kids-room-1.jpg", title: "Study Corner", category: "Kids Room", span: "col-span-2 row-span-2" },
+  { src: "/portfolio/kitchen-1.jpg", title: "Kitchen LED Lighting", category: "Kitchen", span: "" },
+  { src: "/portfolio/living-1.jpg", title: "Dining Zone", category: "Dining", span: "" },
+  { src: "/portfolio/living-2.jpg", title: "Modern Interiors", category: "Living Room", span: "col-span-2" },
+  { src: "/portfolio/living-3.jpg", title: "Sofa Arrangement", category: "Living Room", span: "" },
+  { src: "/portfolio/kitchen-1.jpg", title: "Countertop Detail", category: "Kitchen", span: "" },
+  { src: "/portfolio/living-1.jpg", title: "False Ceiling Design", category: "Living Room", span: "" }
 ];
 
 export default function GalleryPage() {
